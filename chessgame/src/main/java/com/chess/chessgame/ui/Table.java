@@ -4,6 +4,8 @@ import javax.swing.*;
 
 import org.springframework.stereotype.Component;
 
+import com.chess.chessgame.model.Board;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -5,11 +5,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Map.Entry;
 
+import com.chess.chessgame.model.Board;
+import com.chess.chessgame.model.Tile;
+
 public class CoordinateUtil {
 
-    private Map<String, Integer> coordinateStrIntMapping;
+    private static Map<String, Integer> coordinateStrIntMapping;
 
-    public String calculateStrCoordByIntCoord(int intCoordinate){
+    public static String calculateStrCoordByIntCoord(int intCoordinate){
         // assuming a8 = 0 and h1 = 63
 
         for(Entry<String, Integer> e: coordinateStrIntMapping.entrySet()){
@@ -21,7 +24,7 @@ public class CoordinateUtil {
         return null;
     }
 
-    public void generateBoardStringCoordinates(){
+    public static void generateBoardStringCoordinates(Board board){
         coordinateStrIntMapping = new HashMap<>();
         String strCoord = "";
         int count = 0;
@@ -85,6 +88,7 @@ public class CoordinateUtil {
                 }
                 strCoord = prefix + suffix;
                 coordinateStrIntMapping.put(strCoord,  count);
+                board.getTileList().add(new Tile(strCoord)); // add new Tile to board
                 count++;
             }
         }
